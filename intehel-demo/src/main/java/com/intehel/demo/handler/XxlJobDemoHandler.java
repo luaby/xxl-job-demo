@@ -20,7 +20,6 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
 /**
  * XxlJob开发示例（Bean模式）
@@ -42,7 +41,8 @@ public class XxlJobDemoHandler {
      * 1、简单任务示例（Bean模式）
      */
     @XxlJob("demoJobHandler")
-    public ReturnT<String> demoJobHandler(String param) throws Exception {
+    public ReturnT<String> demoJobHandler() throws Exception {
+        String param = XxlJobHelper.getJobParam();
         XxlJobHelper.log("java, Hello World~~~");
         XxlJobHelper.log("param:" + param);
         System.out.println("param:" + param);
